@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment;
 
 public class SunsetFragment extends Fragment {
 
-    private View mSceneView;
     private View mSunView;
     private View mSkyView;
 
@@ -24,7 +23,7 @@ public class SunsetFragment extends Fragment {
     private int mSunsetSkyColor;
     private int mNightSkyColor;
 
-    public static SunsetFragment newInstance() {
+    static SunsetFragment newInstance() {
         return new SunsetFragment();
     }
 
@@ -36,7 +35,6 @@ public class SunsetFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        mSceneView = view;
         mSunView = view.findViewById(R.id.sun);
         mSkyView = view.findViewById(R.id.sky);
 
@@ -45,7 +43,7 @@ public class SunsetFragment extends Fragment {
         mSunsetSkyColor = resources.getColor(R.color.sunset_sky);
         mNightSkyColor = resources.getColor(R.color.night_sky);
 
-        mSceneView.setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startAnimation();
